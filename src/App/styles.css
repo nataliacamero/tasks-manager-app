@@ -6,3 +6,22 @@ body {
   font-size: 1rem;
   padding: 50px;
 }
+
+.label {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 1.3rem;
+}
+
+input {
+  margin-top: 5px;
+  font-size: 1.3rem;
+  padding: 8px;
+}
+
+button {
+  font-size: 1.3rem;
+  margin-right: 5px;
+  margin-top: 8px;
+  padding: 8px;
+}
