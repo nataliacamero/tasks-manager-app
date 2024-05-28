@@ -21,7 +21,6 @@ input {
 
 button {
   font-size: 1.3rem;
-  margin-right: 5px;
   margin-top: 8px;
-  padding: 8px;
+  padding: 12px;
 }

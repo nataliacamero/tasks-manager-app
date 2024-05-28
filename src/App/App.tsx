@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { TASKS_LIST } from "./constants";
 import { task } from "./types";
 import { v4 as uuidv4 } from "uuid";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import "primeicons/primeicons.css";
 import "./styles.css";
 
 const App: React.FC = () => {
@@ -24,30 +30,35 @@ const App: React.FC = () => {
     );
   };
 
+  const deleteBodyTemplate = (rowData: { id: string }) => {
+    return (
+      <i
+        className="pi pi-trash"
+        style={{ fontSize: "1.5rem", color: "black" }}
+        onClick={() => handleDeleteTask(rowData.id)}></i>
+    );
+  };
+
   return (
     <>
-      <>{console.log("tasksList: ", TASKS_LIST)}</>
       <h1>Tasks List</h1>
       <label className="label">
         Write your task here:
-        <input
+        <InputText
           placeholder="Something to do"
           type="text"
           value={value}
           onChange={handleInputChange}
         />
       </label>
-      <button onClick={handleAdd}>Add task</button>
+      <Button onClick={handleAdd}>Add task</Button>
 
-      {tasks
-        .filter((task) => !!task.isVisible)
-        .map((task) => (
-          <>
-            <h2 key={task.id} onClick={() => handleDeleteTask(task.id)}>
-              {task.task}
-            </h2>
-          </>
-        ))}
+      <DataTable
+        value={tasks.filter((task) => task.isVisible)}
+        tableStyle={{ minWidth: "10rem", marginTop: "2rem" }}>
+        <Column field="task" header="Task" />
+        <Column header="Action" body={deleteBodyTemplate}></Column>
+      </DataTable>
     </>
   );
 };
