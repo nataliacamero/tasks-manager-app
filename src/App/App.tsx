@@ -10,7 +10,7 @@ import "primereact/resources/themes/lara-light-cyan/theme.css";
 import "primeicons/primeicons.css";
 import "./styles.css";
 
-const App: React.FC = () => {
+const TasksManager: React.FC = () => {
   const [tasks, setTasks] = useState<task[]>(TASKS_LIST);
   const [value, setValue] = useState<string>("");
 
@@ -63,4 +63,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default TasksManager;
