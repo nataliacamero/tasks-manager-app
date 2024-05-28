@@ -15,6 +15,9 @@ const TasksManager: React.FC = () => {
   const [value, setValue] = useState<string>("");
 
   const handleAdd = (): void => {
+    if (!value) {
+      return;
+    }
     setTasks((prevArray) => [...prevArray, { id: uuidv4(), task: value, isVisible: true }]);
     setValue("");
   };
@@ -31,12 +34,7 @@ const TasksManager: React.FC = () => {
   };
 
   const deleteTaskBodyTemplate = (rowData: { id: string }): JSX.Element => {
-    return (
-      <i
-        className="pi pi-trash"
-        style={{ fontSize: "1.5rem", color: "black" }}
-        onClick={() => handleDeleteTask(rowData.id)}></i>
-    );
+    return <i className="pi pi-trash deleteIcon" onClick={() => handleDeleteTask(rowData.id)}></i>;
   };
 
   return (
@@ -45,18 +43,19 @@ const TasksManager: React.FC = () => {
       <label className="label">
         Write your task here:
         <InputText
+          className="inputStyled"
           placeholder="Something to do"
           type="text"
           value={value}
           onChange={handleInputChange}
         />
       </label>
-      <Button onClick={handleAdd}>Add task</Button>
+      <Button className="buttonStyled" onClick={handleAdd}>
+        Add task
+      </Button>
 
-      <DataTable
-        value={tasks.filter((task) => task.isVisible)}
-        tableStyle={{ minWidth: "10rem", marginTop: "2rem" }}>
-        <Column field="task" header="Task" />
+      <DataTable className="dataTableStyled" value={tasks.filter((task) => task.isVisible)}>
+        <Column field="task" header="Tasks" />
         <Column header="Action" body={deleteTaskBodyTemplate}></Column>
       </DataTable>
     </>
