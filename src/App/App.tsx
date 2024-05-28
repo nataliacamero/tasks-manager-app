@@ -14,7 +14,7 @@ const App: React.FC = () => {
   const [tasks, setTasks] = useState<task[]>(TASKS_LIST);
   const [value, setValue] = useState<string>("");
 
-  const handleAdd = () => {
+  const handleAdd = (): void => {
     setTasks((prevArray) => [...prevArray, { id: uuidv4(), task: value, isVisible: true }]);
     setValue("");
   };
@@ -24,13 +24,13 @@ const App: React.FC = () => {
     setValue(event.target.value);
   };
 
-  const handleDeleteTask = (id: string) => {
+  const handleDeleteTask = (id: string): void => {
     setTasks((prevTasks) =>
       prevTasks.map((task) => (task.id === id ? { ...task, isVisible: false } : task))
     );
   };
 
-  const deleteBodyTemplate = (rowData: { id: string }) => {
+  const deleteTaskBodyTemplate = (rowData: { id: string }): JSX.Element => {
     return (
       <i
         className="pi pi-trash"
@@ -57,7 +57,7 @@ const App: React.FC = () => {
         value={tasks.filter((task) => task.isVisible)}
         tableStyle={{ minWidth: "10rem", marginTop: "2rem" }}>
         <Column field="task" header="Task" />
-        <Column header="Action" body={deleteBodyTemplate}></Column>
+        <Column header="Action" body={deleteTaskBodyTemplate}></Column>
       </DataTable>
     </>
   );
