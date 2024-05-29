@@ -1,0 +1,57 @@
+.inicioLink {
+  align-self: start;
+  margin-left: 2rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.iconLeftArrow {
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.general-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.input-wrapp {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.inputStyled {
+  margin-top: 5px;
+  font-size: 1.2rem;
+  padding: 1rem;
+  width: 30%;
+}
+
+.buttonStyled {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-left: 2rem;
+  padding: 1rem;
+  width: 10%;
+}
+
+.dataTableStyled {
+  width: 50%;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.deleteIcon {
+  font-size: 1.5rem;
+  color: #e74c3c;
+}

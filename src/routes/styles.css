@@ -1,0 +1,36 @@
+.title {
+  text-align: center;
+  font-size: 10rem;
+}
+
+.container-welcome {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.home-text {
+  width: 20%;
+  padding: 1.3rem;
+  color: black;
+  align-self: center;
+  text-align: center;
+  margin-left: 2rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-decoration: none;
+  border: 3px black solid;
+  border-radius: 1rem;
+}
+
+.icon-user {
+  margin-right: 1rem;
+  font-size: large;
+  font-size: 1.3rem;
+}
+
+.icon-chevrone {
+  margin-left: 1rem;
+  font-size: large;
+  font-size: 1.3rem;
+}

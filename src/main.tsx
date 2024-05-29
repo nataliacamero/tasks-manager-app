@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import TasksManager from "./App/App";
+import { App } from "./routes/App/App";
+import "./globalStyles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <TasksManager />
+    <App />
   </React.StrictMode>
 );

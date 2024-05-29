@@ -38,27 +38,31 @@ const TasksManager: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="general-container">
+      <a href="/" rel="noopener noreferrer" className="inicioLink font-bold">
+        <i className="pi pi-arrow-left iconLeftArrow"></i> Inicio
+      </a>
+
       <h1>Tasks List</h1>
-      <label className="label">
-        Write your task here:
+      <div className="input-wrapp">
         <InputText
           className="inputStyled"
-          placeholder="Something to do"
+          placeholder="Write something to do..."
           type="text"
           value={value}
           onChange={handleInputChange}
         />
-      </label>
-      <Button className="buttonStyled" onClick={handleAdd}>
-        Add task
-      </Button>
+
+        <Button className="buttonStyled" onClick={handleAdd}>
+          Add task
+        </Button>
+      </div>
 
       <DataTable className="dataTableStyled" value={tasks.filter((task) => task.isVisible)}>
         <Column field="task" header="Tasks" />
         <Column header="Action" body={deleteTaskBodyTemplate}></Column>
       </DataTable>
-    </>
+    </div>
   );
 };
 
