@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TASKS_LIST } from "./constants";
 import { task } from "./types";
 import { v4 as uuidv4 } from "uuid";
@@ -9,8 +9,11 @@ import { Column } from "primereact/column";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import "primeicons/primeicons.css";
 import "./styles.css";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const TasksManager: React.FC = () => {
+  const { userName } = useContext(UserContext);
   const [tasks, setTasks] = useState<task[]>(TASKS_LIST);
   const [value, setValue] = useState<string>("");
 
@@ -39,10 +42,12 @@ const TasksManager: React.FC = () => {
 
   return (
     <div className="general-container">
-      <a href="/" rel="noopener noreferrer" className="inicioLink font-bold">
+      <Link to="/" className="inicioLink">
         <i className="pi pi-arrow-left iconLeftArrow"></i> Inicio
-      </a>
+      </Link>
 
+      <h1>¡Hello, {`${userName ? userName : "User"}!`}</h1>
+      <h1>¡Let´s write all your tasks below 👇🏻!</h1>
       <h1>Tasks List</h1>
       <div className="input-wrapp">
         <InputText

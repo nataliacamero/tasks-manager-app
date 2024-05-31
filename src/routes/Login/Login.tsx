@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import "./styles.css";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 export const Login: React.FC = () => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const { setUserName, setUserPassword } = useContext(UserContext);
+  const [inputName, setInputName] = useState("");
+  const [inputPassword, setInputPassword] = useState<string>("");
 
   const handleUsernameInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-    alert(event.target.value);
-    setUsername(event.target.value);
+    setInputName(event.target.value);
   };
   const handlePasswordInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-    alert(event.target.value);
-    setPassword(event.target.value);
+    setInputPassword(event.target.value);
+  };
+
+  const handleLogin = () => {
+    setUserName(inputName);
+    setUserPassword(inputPassword);
   };
 
   return (
@@ -26,28 +32,28 @@ export const Login: React.FC = () => {
       </div>
       <div className="container">
         <div className="input-container">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="name">Username</label>
           <InputText
-            id="username"
-            value={username}
+            id="name"
+            value={inputName}
             placeholder="enter your user name"
             aria-describedby="username-help"
             onChange={handleUsernameInputChange}
           />
         </div>
         <div className="input-container">
-          <label htmlFor="username">Password</label>
+          <label htmlFor="password">Password</label>
           <InputText
             id="password"
-            value={password}
+            value={inputPassword}
             placeholder="enter your password"
             aria-describedby="password-help"
             onChange={handlePasswordInputChange}
           />
         </div>
-        <a href="home" rel="noopener noreferrer" className="p-button button">
+        <Link to="/home" className="p-button button" onClick={handleLogin}>
           Login
-        </a>
+        </Link>
       </div>
     </div>
   );

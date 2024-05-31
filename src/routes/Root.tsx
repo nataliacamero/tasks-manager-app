@@ -1,23 +1,25 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, Outlet } from "react-router-dom";
 import "./styles.css";
-
+import { UserContext } from "../context/UserContext";
 export const Root: React.FC = () => {
-  const isLogged = true;
+  const { userName, setUserName, user } = useContext(UserContext);
+  const isLogged = !!userName;
   return (
     <>
       <h1 className="title">¡Welcome!</h1>
       <nav className="container-welcome">
         {isLogged ? (
-          <a href="/home" rel="noopener noreferrer" className="home-text font-bold">
+          <Link to="/home" className="home-text">
             Task Manager <i className="pi pi-chevron-right icon-chevrone "></i>
-          </a>
+          </Link>
         ) : (
-          <a href="/login" rel="noopener noreferrer" className="home-text font-bold">
-            <i className="pi pi-user icon-user"></i>Login
-          </a>
+          <Link to="/login" className="home-text">
+            <i className="pi pi-user icon-user"></i> Login
+          </Link>
         )}
       </nav>
+
       <Outlet />
     </>
   );
