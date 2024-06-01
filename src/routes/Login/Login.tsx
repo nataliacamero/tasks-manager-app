@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
-import { InputText } from "primereact/inputtext";
-import "./styles.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
+import { InputText } from "primereact/inputtext";
+import { Password } from "primereact/password";
+import "./styles.css";
 
 export const Login: React.FC = () => {
   const { setUserName, setUserPassword } = useContext(UserContext);
@@ -26,9 +27,7 @@ export const Login: React.FC = () => {
   return (
     <div className="container-general">
       <div className="header">
-        <h1>TASK MANAGER APP</h1>
-        <h2>Practica 2</h2>
-        <h3>Programa Semilla React js</h3>
+        <h1 className="title-task-manager">Task Manager</h1>
       </div>
       <div className="container">
         <div className="input-container">
@@ -43,12 +42,14 @@ export const Login: React.FC = () => {
         </div>
         <div className="input-container">
           <label htmlFor="password">Password</label>
-          <InputText
+          <Password
             id="password"
+            className="input-password"
+            variant="filled"
             value={inputPassword}
-            placeholder="enter your password"
-            aria-describedby="password-help"
             onChange={handlePasswordInputChange}
+            feedback={false}
+            tabIndex={1}
           />
         </div>
         <Link to="/home" className="p-button button" onClick={handleLogin}>

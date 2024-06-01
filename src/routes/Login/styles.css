@@ -8,16 +8,22 @@
   margin-bottom: 6rem;
   text-align: center;
 }
+
+.title-task-manager {
+  font-size: 5rem;
+  margin-top: 10rem;
+}
+
 .container {
-  font-size: 1.3rem;
-  left: 50%;
   position: relative;
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 35%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
+  width: 295.2px;
+  font-size: 1.3rem;
 }
 .input-container {
   display: flex;

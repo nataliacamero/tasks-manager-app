@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import "./styles.css";
 import { UserContext } from "../context/UserContext";
 export const Root: React.FC = () => {
-  const { userName, setUserName, user } = useContext(UserContext);
+  const { userName } = useContext(UserContext);
   const isLogged = !!userName;
   return (
     <>
